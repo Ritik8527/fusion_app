@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'utils/home.dart';
 import 'utils/splash_video_screen.dart';
+import 'screens/Purchase/purchasemain.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashVideoScreen(),
         '/home': (context) => const ExitConfirmationWrapper(child: HomeScreen()),
+        '/purchase': (context) => PurchaseMainScreen(),
       },
     );
   }

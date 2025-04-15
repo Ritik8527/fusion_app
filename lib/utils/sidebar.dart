@@ -5,6 +5,7 @@ import '../screens/Examination/submit_grades.dart';
 import '../screens/Examination/update_grades.dart';
 import '../screens/Examination/result.dart';
 import 'home.dart'; // Import home screen
+import '../screens/Purchase/purchasemain.dart';
 
 class Sidebar extends StatefulWidget {
   final Function(int)? onItemSelected;
@@ -507,6 +508,7 @@ class _SidebarState extends State<Sidebar> {
                       _isFileTrackingExpanded = !_isFileTrackingExpanded;
                     });
                   },
+
                 ),
                 if (_isFileTrackingExpanded) ...[
                   _buildSubNavItem(context,
@@ -528,21 +530,65 @@ class _SidebarState extends State<Sidebar> {
                     setState(() {
                       _isPurchaseExpanded = !_isPurchaseExpanded;
                     });
+
+                  },
+                  onTap: () {
+                    // Navigate to Examination Dashboard when clicking on the module directly
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PurchaseMainScreen(initialTab: 0),
+                      ),
+                    );
                   },
                 ),
                 if (_isPurchaseExpanded) ...[
-                  _buildSubNavItem(context,
-                      icon: Icons.add_shopping_cart,
-                      title: 'Create Order',
-                      index: 16),
-                  _buildSubNavItem(context,
-                      icon: Icons.receipt_long,
-                      title: 'Purchase Requests',
-                      index: 17),
-                  _buildSubNavItem(context,
-                      icon: Icons.inventory,
-                      title: 'Manage Vendors',
-                      index: 18),
+                  _buildSubNavItem(
+                    context,
+                    icon: Icons.description,
+                    title: 'Indent Form',
+                    index: 16,
+                    // onTap: () {
+                    //   Navigator.pop(context);
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const PurchaseMainScreen(initialTab: 0),
+                    //     ),
+                    //   );
+                    // },
+                  ),
+                  _buildSubNavItem(
+                    context,
+                    icon: Icons.list_alt,
+                    title: 'All Filed Indents',
+                    index: 17,
+                    // onTap: () {
+                    //   Navigator.pop(context);
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const PurchaseMainScreen(initialTab: 1),
+                    //     ),
+                    //   );
+                    // },
+                  ),
+                  _buildSubNavItem(
+                    context,
+                    icon: Icons.save,
+                    title: 'Saved Indents',
+                    index: 18,
+                    // onTap: () {
+                    //   Navigator.pop(context);
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const PurchaseMainScreen(initialTab: 2),
+                    //     ),
+                    //   );
+                    // },
+                  ),
                 ],
 
                 // Programme and Curriculum Module
